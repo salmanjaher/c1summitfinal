@@ -8,23 +8,66 @@ const url =
 function Body() {
   const [parkData, setParkData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [parkList, setParkList] = useState([]);
+  const [choices, setChoices] = useState([]);
+
+  const addChoices = (name) => {
+    if (!choices.includes(name)) {
+      setChoices([...choices, name]);
+    }
+  };
+
+  const filterActivity = (id) => {
+    setParkList((parkList) => {
+      return parkList.filter(
+        (park) =>
+          park.activities
+            .map((parkItem) => parkItem.id === id)
+            .includes(true) === true
+      );
+    });
+  };
+
   const fetchData = async () => {
     const data = await fetch(url);
     const info = await data.json();
     setParkData(info);
+    setParkList(info.data);
     setIsLoading(false);
-    console.log(info.data);
+  };
+
+  const reset = () => {
+    fetchData();
+    setChoices([]);
   };
 
   useEffect(() => {
     fetchData();
   }, []);
 
+  if (parkList.length == 0) {
+    return (
+      <>
+        <Activities
+          addChoices={addChoices}
+          reset={reset}
+          filterActivity={filterActivity}
+          choices={choices}
+        />
+        <h1>No matching results...</h1>
+      </>
+    );
+  }
   if (!isLoading) {
     return (
       <div>
-        <Activities />
-        {parkData.data.map((park) => {
+        <Activities
+          addChoices={addChoices}
+          reset={reset}
+          filterActivity={filterActivity}
+          choices={choices}
+        />
+        {parkList.map((park) => {
           return <Parks key={park.id} data={park} />;
         })}
       </div>

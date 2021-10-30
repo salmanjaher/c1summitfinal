@@ -6,11 +6,11 @@ const Parks = (props) => {
   if (!moreLess) {
     return (
       <>
-        <h2>Park Name : {data.fullName}</h2>
+        <h2>{data.fullName}</h2>
         <img src={data.images[0].url} alt='' />
         <p>About park: {data.description}</p>
         <button onClick={() => setMoreLess(!moreLess)}>Read More</button>
-        <button onClick={() => console.log('clicked')}> Add to List</button>
+        <button onClick={() => console.log('clicked')}>Add to List</button>
       </>
     );
   } else {
