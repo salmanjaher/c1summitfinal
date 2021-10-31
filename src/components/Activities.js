@@ -31,8 +31,8 @@ function Activities({ filterActivity, reset, addChoices, choices }) {
           {activityData.data.map((activity) => {
             return (
               <Activity
-                addChoices={addChoices}
                 key={activity.id}
+                addChoices={addChoices}
                 filterActivity={filterActivity}
                 {...activity}
               />
@@ -40,7 +40,7 @@ function Activities({ filterActivity, reset, addChoices, choices }) {
           })}
         </p>
         {choices.map((choice) => {
-          return <label>| {choice} </label>;
+          return <h5>{choice} </h5>;
         })}
       </>
     );

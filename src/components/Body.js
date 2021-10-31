@@ -45,10 +45,11 @@ function Body() {
     fetchData();
   }, []);
 
-  if (parkList.length == 0) {
+  if (parkList.length === 0) {
     return (
       <>
         <Activities
+          key={parkList.id}
           addChoices={addChoices}
           reset={reset}
           filterActivity={filterActivity}
@@ -62,6 +63,7 @@ function Body() {
     return (
       <div>
         <Activities
+          key={parkList.id}
           addChoices={addChoices}
           reset={reset}
           filterActivity={filterActivity}
