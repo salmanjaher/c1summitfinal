@@ -23,6 +23,12 @@ function Body() {
     setWatchList(!watchList);
   };
 
+  const addToList = (parkCode) => {
+    if (!watchListData.includes(parkCode)) {
+      setWatchListData([...watchListData, parkCode]);
+    }
+  };
+
   const filterActivity = (id) => {
     setParkList((parkList) => {
       return parkList.filter(
@@ -83,7 +89,7 @@ function Body() {
           choices={choices}
         />
         {parkList.map((park) => {
-          return <Parks key={park.id} data={park} />;
+          return <Parks addToList={addToList} key={park.id} data={park} />;
         })}
       </div>
     );
