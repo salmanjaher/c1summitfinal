@@ -23,8 +23,9 @@ const Parks = (props) => {
         <p>Weather Info: {data.weatherInfo}</p>
         <a href={data.url}>Park Website</a>
         <br />
+        <br />
         <button onClick={() => setMoreLess(!moreLess)}>Read Less</button>
-        <button onClick={() => addToList(data.parkCode)}> Add to List</button>
+        <button onClick={() => addToList(data.parkCode)}>Add to List</button>
       </>
     );
   }

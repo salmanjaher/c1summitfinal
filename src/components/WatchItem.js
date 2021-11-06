@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function WatchItem({ parkCode }) {
+function WatchItem({ parkCode, removeFromList }) {
   const [imageData, setImageData] = useState([]);
   const [parkData, setParkData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -31,8 +31,8 @@ function WatchItem({ parkCode }) {
     return (
       <>
         <h2>{parkData[0].fullName}</h2>
-        <h3>Unfortunately there is no active images for this park. :(</h3>
-        <button>Remove Park</button>
+        <h5>Unfortunately there are no active images for this park. :(</h5>
+        <button onClick={() => removeFromList(parkCode)}>Remove Park</button>
       </>
     );
   } else {
@@ -44,7 +44,7 @@ function WatchItem({ parkCode }) {
             return <img src={item.url} alt='' />;
           });
         })}
-        <button>Remove Park</button>
+        <button onClick={() => removeFromList(parkCode)}>Remove Park</button>
       </>
     );
   }

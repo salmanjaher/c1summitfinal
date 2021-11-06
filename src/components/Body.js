@@ -23,6 +23,10 @@ function Body() {
     setWatchList(!watchList);
   };
 
+  const removeFromList = (parkCode) => {
+    console.log('hello');
+  };
+
   const addToList = (parkCode) => {
     if (!watchListData.includes(parkCode)) {
       setWatchListData([...watchListData, parkCode]);
@@ -56,9 +60,21 @@ function Body() {
     fetchData();
   }, []);
 
-  if (parkList.length === 0) {
+  if (watchList) {
     return (
       <>
+        <WebStream
+          removeFromList={removeFromList}
+          watchHandle={watchHandle}
+          watchListData={watchListData}
+        />
+      </>
+    );
+  } else if (parkList.length === 0) {
+    return (
+      <>
+        <br />
+        <button onClick={watchHandle}>To Watchlist</button>
         <Activities
           key={parkList.id}
           addChoices={addChoices}
@@ -69,17 +85,10 @@ function Body() {
         <h1>No matching results...</h1>
       </>
     );
-  }
-  if (watchList) {
-    return (
-      <>
-        <WebStream watchHandle={watchHandle} watchListData={watchListData} />
-      </>
-    );
-  }
-  if (!isLoading) {
+  } else if (!isLoading) {
     return (
       <div>
+        <br />
         <button onClick={watchHandle}>To Watchlist</button>
         <Activities
           key={parkList.id}

@@ -25,6 +25,8 @@ function Activities({ filterActivity, reset, addChoices, choices }) {
   if (!isLoading) {
     return (
       <>
+        <br />
+        <br />
         <button onClick={handleClick}>View Activities</button>
         <button onClick={reset}>Reset</button>
         <p>
