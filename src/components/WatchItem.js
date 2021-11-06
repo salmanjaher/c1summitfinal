@@ -1,30 +1,36 @@
 import React, { useState, useEffect } from 'react';
 
+/**
+ * Second functional element. Creates and pulls a data dynmically based on a park code.
+ * Recieves webcam data to display non-streaming elements.
+ * GIVES REASON IF THERE ARE NO IMAGES FOR CERTAIN PARK.
+ */
 function WatchItem({ parkCode, removeFromList }) {
+  // State variables
   const [imageData, setImageData] = useState([]);
   const [parkData, setParkData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  let defaultImage =
-    'https://static01.nyt.com/images/2021/09/14/science/07CAT-STRIPES/07CAT-STRIPES-mediumSquareAt3X-v2.jpg';
 
-  const fetchData = async () => {
-    const imageData = await fetch(
-      `https://developer.nps.gov/api/v1/webcams?parkCode=${parkCode}&api_key=wbakT9pi2jO0k5wzrWTRx9F3FbElu7z0alH59mqz`
-    );
-    const parkData = await fetch(
-      `https://developer.nps.gov/api/v1/parks?parkCode=${parkCode}&api_key=wbakT9pi2jO0k5wzrWTRx9F3FbElu7z0alH59mqz`
-    );
-    const info = await imageData.json();
-    const info2 = await parkData.json();
-    setImageData(info.data);
-    setParkData(info2.data);
-    setIsLoading(false);
-  };
-
+  // Renders item once intially.
   useEffect(() => {
+    // Dynamically queries API and pulls data based on parkCode.
+    const fetchData = async () => {
+      const imageData = await fetch(
+        `https://developer.nps.gov/api/v1/webcams?parkCode=${parkCode}&api_key=wbakT9pi2jO0k5wzrWTRx9F3FbElu7z0alH59mqz`
+      );
+      const parkData = await fetch(
+        `https://developer.nps.gov/api/v1/parks?parkCode=${parkCode}&api_key=wbakT9pi2jO0k5wzrWTRx9F3FbElu7z0alH59mqz`
+      );
+      const info = await imageData.json();
+      const info2 = await parkData.json();
+      setImageData(info.data);
+      setParkData(info2.data);
+      setIsLoading(false);
+    };
     fetchData();
-  }, []);
+  }, [parkCode]);
 
+  // Conditional rendering
   if (isLoading) {
     return <h1>Loading Images...</h1>;
   } else if (imageData.length === 0) {

@@ -1,9 +1,12 @@
 import React from 'react';
-import './Footer.css';
+import '../styles/main.css';
+/**
+ * Simple footer with build toolkit and my name.
+ */
 const Footer = () => {
   return (
-    <div className='footer'>
-      <p>Built with React</p>
+    <div class='align-center flex-auto bg-yellow-700'>
+      <p class='font-mono text-xs pt-2'>Built with React by Salman Jaher</p>
     </div>
   );
 };

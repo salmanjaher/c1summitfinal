@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 
-const Parks = (props) => {
+// Displays each park as a dynamic object based on data passed in.
+const Parks = ({ data, addToList }) => {
+  // State variables
   const [moreLess, setMoreLess] = useState(false);
-  const { data, addToList } = props;
+  // Conditional rendering of park items.
   if (!moreLess) {
     return (
       <>

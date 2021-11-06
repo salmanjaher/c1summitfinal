@@ -1,7 +1,9 @@
 import React from 'react';
 import WatchItem from './WatchItem';
 
+// Deliverable 2 Webpage handler
 function WebStream({ watchHandle, watchListData, removeFromList }) {
+  // Conditional rendering and listing of watchlist items based on user addition.
   if (watchListData.length === 0) {
     return (
       <>
