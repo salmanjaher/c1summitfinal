@@ -8,26 +8,72 @@ const Parks = ({ data, addToList }) => {
   if (!moreLess) {
     return (
       <>
-        <h2>{data.fullName}</h2>
-        <img src={data.images[0].url} alt='' />
-        <p>About park: {data.description}</p>
-        <button onClick={() => setMoreLess(!moreLess)}>Read More</button>
-        <button onClick={() => addToList(data.parkCode)}>Add to List</button>
+        <div class='block bg-yellow-800 rounded-lg text-white'>
+          <h2 class='text-4xl font-sans pt-4 font-bold px-2'>
+            {data.fullName}
+          </h2>
+          <img
+            class='h-30 w-30 object-cover px-5 py-3'
+            src={data.images[0].url}
+            alt=''
+          />
+          <p class='font-bold'>About Park:</p>
+          <p class='font-thin px-5 pb-5'>{data.description}</p>
+          <button
+            class='bg-yellow-700 hover:bg-yellow-800 font-thin text-white py-1 px-2 rounded-l'
+            onClick={() => setMoreLess(!moreLess)}
+          >
+            Read More
+          </button>
+          <button
+            class='bg-yellow-700 hover:bg-yellow-800 font-thin text-white py-1 px-2 rounded-r'
+            onClick={() => addToList(data.parkCode)}
+          >
+            Add to List
+          </button>
+          <br />
+          <br />
+        </div>
       </>
     );
   } else {
     return (
       <>
-        <h2>{data.fullName}</h2>
-        <img src={data.images[0].url} alt='' />
-        <p>About park: {data.description}</p>
-        <p>Directions Info: {data.directionsInfo}</p>
-        <p>Weather Info: {data.weatherInfo}</p>
-        <a href={data.url}>Park Website</a>
-        <br />
-        <br />
-        <button onClick={() => setMoreLess(!moreLess)}>Read Less</button>
-        <button onClick={() => addToList(data.parkCode)}>Add to List</button>
+        <div class='block bg-yellow-800 rounded-lg text-white'>
+          <h2 class='text-4xl font-sans pt-4 font-bold px-2'>
+            {data.fullName}
+          </h2>
+          <img
+            class='h-30 w-30 object-cover px-5 py-3'
+            src={data.images[0].url}
+            alt=''
+          />
+          <p class='font-bold'>About Park:</p>
+          <p class='font-thin px-5 pb-5'>{data.description}</p>
+          <p class='font-bold'>Directions Info:</p>
+          <p class='font-thin px-5 pb-5'>{data.directionsInfo}</p>
+          <p class='font-bold'>Weather Info:</p>
+          <p class='font-thin px-5 pb-5'>{data.weatherInfo}</p>
+          <a class='underline text-xl text-blue-500' href={data.url}>
+            Park Website
+          </a>
+          <br />
+          <br />
+          <button
+            class='bg-yellow-700 hover:bg-yellow-800 font-thin text-white py-1 px-2 rounded-l'
+            onClick={() => setMoreLess(!moreLess)}
+          >
+            Read Less
+          </button>
+          <button
+            class='bg-yellow-700 hover:bg-yellow-800 font-thin text-white py-1 px-2 rounded-r'
+            onClick={() => addToList(data.parkCode)}
+          >
+            Add to List
+          </button>
+          <br />
+          <br />
+        </div>
       </>
     );
   }

@@ -78,7 +78,9 @@ function Body() {
 
   // Conditional rendering of website.
   if (isLoading) {
-    return <h1 class='text-5xl p-10 font-bold font-mono'>Loading data...</h1>;
+    return (
+      <h1 class='text-5xl p-10  text-xlfont-bold font-mono'>Loading data...</h1>
+    );
   } else if (watchList) {
     return (
       <>
@@ -94,7 +96,7 @@ function Body() {
       <>
         <br />
         <button
-          class='bg-yellow-700 hover:bg-yellow-800 font-thin text-white py-1 px-2 rounded-l'
+          class='bg-yellow-700 hover:bg-yellow-800 font-thin text-white text-xl py-1 px-2 rounded-l'
           onClick={watchHandle}
         >
           To Watchlist
@@ -116,7 +118,7 @@ function Body() {
       <div>
         <br />
         <button
-          class='bg-yellow-700 hover:bg-yellow-800 font-thin text-white py-1 px-2 rounded-l'
+          class='bg-yellow-700 hover:bg-yellow-800 font-thin text-xl text-white py-1 px-2 rounded-l'
           onClick={watchHandle}
         >
           To Watchlist
@@ -128,9 +130,11 @@ function Body() {
           filterActivity={filterActivity}
           choices={choices}
         />
-        {parkList.map((park) => {
-          return <Parks addToList={addToList} key={park.id} data={park} />;
-        })}
+        <div class='grid grid-cols-3 gap-x-4 p-4 gap-y-3'>
+          {parkList.map((park) => {
+            return <Parks addToList={addToList} key={park.id} data={park} />;
+          })}
+        </div>
       </div>
     );
   }

@@ -34,7 +34,7 @@ function Activities({ filterActivity, reset, addChoices, choices }) {
     return (
       <>
         <button
-          class='bg-yellow-700 hover:bg-yellow-800 font-thin text-white py-1 px-2 rounded-r'
+          class='bg-yellow-700 hover:bg-yellow-800 font-thin text-xl text-white py-1 px-2 rounded-r'
           onClick={handleClick}
         >
           View Activities
@@ -42,7 +42,7 @@ function Activities({ filterActivity, reset, addChoices, choices }) {
         <br />
         <br />
         <button
-          class='bg-yellow-700 hover:bg-yellow-800 font-thin text-white py-1 px-2 rounded'
+          class='bg-yellow-700 hover:bg-yellow-800 font-thin  text-2xl text-white py-1 px-2 rounded'
           onClick={reset}
         >
           Reset
@@ -69,7 +69,7 @@ function Activities({ filterActivity, reset, addChoices, choices }) {
     return (
       <>
         <button
-          class='bg-yellow-700 hover:bg-yellow-800 font-thin text-white py-1 px-2 rounded-r'
+          class='bg-yellow-700 hover:bg-yellow-800 font-thin text-xl text-white py-1 px-2 rounded-r'
           onClick={handleClick}
         >
           View Activities

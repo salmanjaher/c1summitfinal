@@ -5,8 +5,10 @@ import '../styles/main.css';
  */
 const Footer = () => {
   return (
-    <div class='align-center flex-auto bg-yellow-700'>
-      <p class='font-mono text-xs pt-2'>Built with React by Salman Jaher</p>
+    <div class='bottom-0 inset-x-0 bg-yellow-700'>
+      <p class=' w-full align-center font-mono text-xs pt-2 pb-1 underline bg-yellow-700'>
+        Built with React by Salman Jaher
+      </p>
     </div>
   );
 };

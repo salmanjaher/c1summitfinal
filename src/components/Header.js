@@ -7,8 +7,8 @@ import '../styles/main.css';
 const Header = () => {
   return (
     <div class='align-center flex-auto bg-yellow-700 text-white'>
-      <h1 class='font-bold text-5xl pt-5 font-sans'>National Parks</h1>
-      <h4 class='p-5 italic font-thin underline'>
+      <h1 class='font-bold text-7xl pt-5 font-sans'>National Parks</h1>
+      <h4 class='text-xl p-5 italic font-thin underline'>
         What would you like to do today?
       </h4>
     </div>
