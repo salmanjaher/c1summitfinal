@@ -26,6 +26,7 @@ function WatchItem({ parkCode, removeFromList }) {
       setImageData(info.data);
       setParkData(info2.data);
       setIsLoading(false);
+      console.log(info.data);
     };
     fetchData();
   }, [parkCode]);
@@ -34,6 +35,27 @@ function WatchItem({ parkCode, removeFromList }) {
   if (isLoading) {
     return <h1 class='text-5xl p-10 font-bold font-mono'>Loading Images...</h1>;
   } else if (imageData.length === 0) {
+    return (
+      <>
+        <div class='block bg-yellow-800 rounded-lg text-white text-center'>
+          <h2 class='text-4xl font-sans pt-4 font-bold px-2'>
+            {parkData[0].fullName}
+          </h2>
+          <h5 class='p-3 text underline font-thin'>
+            Unfortunately there are no active images for this park. ☹️
+          </h5>
+          <button
+            class='bg-yellow-700 hover:bg-yellow-800 font-thin text-white py-1 px-2 rounded'
+            onClick={() => removeFromList(parkCode)}
+          >
+            Remove Park
+          </button>
+          <br />
+          <br />
+        </div>
+      </>
+    );
+  } else if (imageData.length === 1 && imageData[0].images.length === 0) {
     return (
       <>
         <div class='block bg-yellow-800 rounded-lg text-white text-center'>
