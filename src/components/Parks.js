@@ -8,7 +8,7 @@ const Parks = ({ data, addToList }) => {
   if (!moreLess) {
     return (
       <>
-        <div class='block bg-yellow-800 rounded-lg text-white'>
+        <div class='conatiner mx-auto bg-yellow-800 rounded-lg text-white'>
           <h2 class='text-4xl font-sans pt-4 font-bold px-2'>
             {data.fullName}
           </h2>
@@ -39,7 +39,7 @@ const Parks = ({ data, addToList }) => {
   } else {
     return (
       <>
-        <div class='block bg-yellow-800 rounded-lg text-white'>
+        <div class='container mx-auto bg-yellow-800 rounded-lg text-white'>
           <h2 class='text-4xl font-sans pt-4 font-bold px-2'>
             {data.fullName}
           </h2>

@@ -130,7 +130,7 @@ function Body() {
           filterActivity={filterActivity}
           choices={choices}
         />
-        <div class='grid grid-cols-3 gap-x-4 p-4 gap-y-3'>
+        <div class='grid grid-cols-3 justify-items-center gap-x-4 p-4 gap-y-3'>
           {parkList.map((park) => {
             return <Parks addToList={addToList} key={park.id} data={park} />;
           })}
