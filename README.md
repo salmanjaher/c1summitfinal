@@ -21,7 +21,7 @@ The watchlist will contain the active images based on a the parks added to the w
 Some parks will have singleton images, and some will have multiple, similarly some will have no images.
 You can remove parks from the list via the the remove park button.
 
-### `If there are no images for the park there will be no images presented and it will mention that no active images are avaiable.`
+### `If there are no images for the park there will be no images presented and it will mention that no active images are available.`
 
 ## Scripts
 
