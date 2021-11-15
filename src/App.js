@@ -9,7 +9,7 @@ import Body from './components/Body';
  */
 function App() {
   return (
-    <div className='text-center'>
+    <div className='bg-gradient-to-r from-green-700 via-green-200 to-green-700 text-center'>
       <Header />
       <Body />
       <Footer />

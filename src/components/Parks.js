@@ -8,7 +8,7 @@ const Parks = ({ data, addToList }) => {
   if (!moreLess) {
     return (
       <>
-        <div class='conatiner mx-auto bg-yellow-800 rounded-lg text-white'>
+        <div class='container ring-2 ring-green-700 mx-auto bg-yellow-800 rounded-lg text-white'>
           <h2 class='text-4xl font-sans pt-4 font-bold px-2'>
             {data.fullName}
           </h2>
@@ -20,13 +20,13 @@ const Parks = ({ data, addToList }) => {
           <p class='font-bold'>About Park:</p>
           <p class='font-thin px-5 pb-5'>{data.description}</p>
           <button
-            class='bg-yellow-700 hover:bg-yellow-800 font-thin text-white py-1 px-2 rounded-l'
+            class='bg-white hover:bg-gray-200 font-bold text-yellow-700 py-1 px-2 rounded-l'
             onClick={() => setMoreLess(!moreLess)}
           >
             Read More
           </button>
           <button
-            class='bg-yellow-700 hover:bg-yellow-800 font-thin text-white py-1 px-2 rounded-r'
+            class='bg-white hover:bg-gray-200 font-bold text-yellow-700  py-1 px-2 rounded-r'
             onClick={() => addToList(data.parkCode)}
           >
             Add to List
@@ -60,13 +60,13 @@ const Parks = ({ data, addToList }) => {
           <br />
           <br />
           <button
-            class='bg-yellow-700 hover:bg-yellow-800 font-thin text-white py-1 px-2 rounded-l'
+            class='bg-white hover:bg-gray-200 font-bold text-yellow-700  py-1 px-2 rounded-l'
             onClick={() => setMoreLess(!moreLess)}
           >
             Read Less
           </button>
           <button
-            class='bg-yellow-700 hover:bg-yellow-800 font-thin text-white py-1 px-2 rounded-r'
+            class='bg-white hover:bg-gray-200 font-bold text-yellow-700  py-1 px-2 rounded-r'
             onClick={() => addToList(data.parkCode)}
           >
             Add to List

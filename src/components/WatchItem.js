@@ -37,7 +37,7 @@ function WatchItem({ parkCode, removeFromList }) {
   } else if (imageData.length === 0) {
     return (
       <>
-        <div class='block bg-yellow-800 rounded-lg text-white text-center'>
+        <div class='block ring-2 ring-green-700 bg-yellow-800 rounded-lg text-white text-center'>
           <h2 class='text-4xl font-sans pt-4 font-bold px-2'>
             {parkData[0].fullName}
           </h2>
@@ -45,7 +45,7 @@ function WatchItem({ parkCode, removeFromList }) {
             Unfortunately there are no active images for this park. ☹️
           </h5>
           <button
-            class='bg-yellow-700 hover:bg-yellow-800 font-thin text-white py-1 px-2 rounded'
+            class='bg-white hover:bg-gray-200 font-bold text-yellow-700  py-1 px-2 rounded'
             onClick={() => removeFromList(parkCode)}
           >
             Remove Park
@@ -58,7 +58,7 @@ function WatchItem({ parkCode, removeFromList }) {
   } else {
     return (
       <>
-        <div class='block bg-yellow-800 rounded-lg'>
+        <div class='block ring-2 ring-green-700 bg-yellow-800 rounded-lg'>
           <h1 class='text-4xl font-sans pt-4 px-2 text-white font-bold'>
             {parkData[0].fullName}
           </h1>
@@ -84,7 +84,7 @@ function WatchItem({ parkCode, removeFromList }) {
             )}
           </div>
           <button
-            class='bg-yellow-700 hover:bg-yellow-800 font-thin text-white py-1 px-2 rounded'
+            class='bg-white hover:bg-gray-200 font-bold text-yellow-700  py-1 px-2 rounded'
             onClick={() => removeFromList(parkCode)}
           >
             Remove Park
