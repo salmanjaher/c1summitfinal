@@ -55,27 +55,6 @@ function WatchItem({ parkCode, removeFromList }) {
         </div>
       </>
     );
-  } else if (imageData.length === 1 && imageData[0].images.length === 0) {
-    return (
-      <>
-        <div class='block bg-yellow-800 rounded-lg text-white text-center'>
-          <h2 class='text-4xl font-sans pt-4 font-bold px-2'>
-            {parkData[0].fullName}
-          </h2>
-          <h5 class='p-3 text underline font-thin'>
-            Unfortunately there are no active images for this park. ☹️
-          </h5>
-          <button
-            class='bg-yellow-700 hover:bg-yellow-800 font-thin text-white py-1 px-2 rounded'
-            onClick={() => removeFromList(parkCode)}
-          >
-            Remove Park
-          </button>
-          <br />
-          <br />
-        </div>
-      </>
-    );
   } else {
     return (
       <>
@@ -84,17 +63,25 @@ function WatchItem({ parkCode, removeFromList }) {
             {parkData[0].fullName}
           </h1>
           <div>
-            {imageData.map((img) => {
-              return img.images.map((item) => {
-                return (
-                  <img
-                    class='h-30 w-30 object-cover px-5 py-3'
-                    src={item.url}
-                    alt=''
-                  />
-                );
-              });
-            })}
+            {imageData.length !== 0 ? (
+              imageData.map((img) => {
+                return img.images.map((item) => {
+                  return (
+                    <div>
+                      <img
+                        class='h-30 w-30 object-cover px-5 py-3'
+                        src={item.url}
+                        alt=''
+                      />
+                    </div>
+                  );
+                });
+              })
+            ) : (
+              <h5 class='p-3 text underline font-thin'>
+                Unfortunately there are no active images for this park. ☹️
+              </h5>
+            )}
           </div>
           <button
             class='bg-yellow-700 hover:bg-yellow-800 font-thin text-white py-1 px-2 rounded'
