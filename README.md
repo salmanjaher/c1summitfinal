@@ -23,7 +23,7 @@ You can remove parks from the list via the the remove park button.
 
 ### `If there are no images for the park there will be no images presented and it will mention that no active images are available.`
 
-## Scripts
+## Node Scripts
 
 ### `npm start`
 

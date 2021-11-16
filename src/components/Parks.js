@@ -5,6 +5,7 @@ const Parks = ({ data, addToList }) => {
   // State variables
   const [moreLess, setMoreLess] = useState(false);
   // Conditional rendering of park items.
+  // Toggle for Read more/Read less (This is on Read less)
   if (!moreLess) {
     return (
       <>
@@ -37,6 +38,7 @@ const Parks = ({ data, addToList }) => {
       </>
     );
   } else {
+    // Read More
     return (
       <>
         <div class='container mx-auto bg-yellow-800 rounded-lg text-white'>

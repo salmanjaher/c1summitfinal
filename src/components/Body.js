@@ -77,11 +77,13 @@ function Body() {
   }, []);
 
   // Conditional rendering of website.
+  // If data is being loaded
   if (isLoading) {
     return (
       <h1 class='text-5xl p-10  text-xlfont-bold font-mono'>Loading data...</h1>
     );
   } else if (watchList) {
+    // If on the watchList page
     return (
       <>
         <WebStream
@@ -92,6 +94,7 @@ function Body() {
       </>
     );
   } else if (parkList.length === 0) {
+    // If there are no parks after choosing the activities
     return (
       <>
         <br />
@@ -114,6 +117,7 @@ function Body() {
       </>
     );
   } else {
+    // Show list of parks
     return (
       <div>
         <br />

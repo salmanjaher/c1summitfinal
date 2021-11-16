@@ -4,6 +4,7 @@ import WatchItem from './WatchItem';
 // Deliverable 2 Webpage handler
 function WebStream({ watchHandle, watchListData, removeFromList }) {
   // Conditional rendering and listing of watchlist items based on user addition.
+  // Page if there no parks on watchlist.
   if (watchListData.length === 0) {
     return (
       <>
@@ -23,6 +24,7 @@ function WebStream({ watchHandle, watchListData, removeFromList }) {
       </>
     );
   } else {
+    // Listing of parks if there is parks on the watchlist.
     return (
       <>
         <br />

@@ -32,9 +32,11 @@ function WatchItem({ parkCode, removeFromList }) {
   }, [parkCode]);
 
   // Conditional rendering
+  // Checks if website is loading images
   if (isLoading) {
     return <h1 class='text-5xl p-10 font-bold font-mono'>Loading Images...</h1>;
   } else if (imageData.length === 0) {
+    // If there is no imageData at all for the park
     return (
       <>
         <div class='block ring-2 ring-green-700 bg-yellow-800 rounded-lg text-white text-center'>
@@ -56,6 +58,7 @@ function WatchItem({ parkCode, removeFromList }) {
       </>
     );
   } else {
+    // If there is images, print them.
     return (
       <>
         <div class='block ring-2 ring-green-700 bg-yellow-800 rounded-lg'>
