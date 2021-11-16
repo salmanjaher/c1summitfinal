@@ -5,6 +5,8 @@ import React, { useState, useEffect } from 'react';
  * Recieves webcam data to display non-streaming elements.
  * GIVES REASON IF THERE ARE NO IMAGES FOR CERTAIN PARK.
  */
+const API_KEY = process.env.REACT_APP_API_KEY;
+
 function WatchItem({ parkCode, removeFromList }) {
   // State variables
   const [imageData, setImageData] = useState([]);
@@ -16,17 +18,16 @@ function WatchItem({ parkCode, removeFromList }) {
     // Dynamically queries API and pulls data based on parkCode.
     const fetchData = async () => {
       const imageData = await fetch(
-        `https://developer.nps.gov/api/v1/webcams?parkCode=${parkCode}&api_key=wbakT9pi2jO0k5wzrWTRx9F3FbElu7z0alH59mqz`
+        `https://developer.nps.gov/api/v1/webcams?parkCode=${parkCode}&api_key=${API_KEY}`
       );
       const parkData = await fetch(
-        `https://developer.nps.gov/api/v1/parks?parkCode=${parkCode}&api_key=wbakT9pi2jO0k5wzrWTRx9F3FbElu7z0alH59mqz`
+        `https://developer.nps.gov/api/v1/parks?parkCode=${parkCode}&api_key=${API_KEY}`
       );
       const info = await imageData.json();
       const info2 = await parkData.json();
       setImageData(info.data);
       setParkData(info2.data);
       setIsLoading(false);
-      console.log(info.data);
     };
     fetchData();
   }, [parkCode]);

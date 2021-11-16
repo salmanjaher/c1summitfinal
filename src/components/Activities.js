@@ -3,8 +3,7 @@ import Activity from './Activity';
 import '../styles/main.css';
 
 // URL for list of activities from NPS Api
-const url =
-  'https://developer.nps.gov/api/v1/activities?api_key=wbakT9pi2jO0k5wzrWTRx9F3FbElu7z0alH59mqz';
+const API_KEY = process.env.REACT_APP_API_KEY;
 
 // Function handles all activities and their data and buttons.
 function Activities({ filterActivity, reset, addChoices, choices }) {
@@ -14,7 +13,9 @@ function Activities({ filterActivity, reset, addChoices, choices }) {
 
   // API data fetching.
   const fetchData = async () => {
-    const data = await fetch(url);
+    const data = await fetch(
+      `https://developer.nps.gov/api/v1/activities?api_key=${API_KEY}`
+    );
     const info = await data.json();
     setActivityData(info);
   };

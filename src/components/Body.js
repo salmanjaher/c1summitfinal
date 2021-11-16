@@ -5,8 +5,7 @@ import WebStream from './WebStream';
 import '../styles/main.css';
 
 // API acess to full list of parks.
-const url =
-  'https://developer.nps.gov/api/v1/parks?limit=496&api_key=wbakT9pi2jO0k5wzrWTRx9F3FbElu7z0alH59mqz';
+const API_KEY = process.env.REACT_APP_API_KEY;
 
 /**
  * Function that handles all of the hard work and logic behind the web app.
@@ -59,7 +58,9 @@ function Body() {
 
   // Fetchs data from NPS Api.
   const fetchData = async () => {
-    const data = await fetch(url);
+    const data = await fetch(
+      `https://developer.nps.gov/api/v1/parks?limit=496&api_key=${API_KEY}`
+    );
     const info = await data.json();
     setParkList(info.data);
     setIsLoading(false);
